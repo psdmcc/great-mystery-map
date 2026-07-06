@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Mystery Map - Node Aggregator</title>
+    
+    <!-- Leaflet Interactive Map Framework CSS -->
+    <link rel="stylesheet" href="https://unpkg.com" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        #map {
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+        }
+        /* Scannable, responsive table layout for popups */
+        .popup-table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+            min-width: 280px;
+            font-size: 13px;
+        }
+        .popup-table th, .popup-table td {
+            border: 1px solid #e2e8f0;
+            padding: 8px 10px;
+            text-align: left;
+        }
+        .popup-table th {
+            background-color: #f1f5f9;
+            color: #334155;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+        .popup-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        .popup-table a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .popup-table a:hover {
+            text-decoration: underline;
+            color: #1d4ed8;
+        }
+        .popup-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 0;
+            border-bottom: 2px solid #cbd5e1;
+            padding-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Target Map Box Component -->
+    <div id="map"></div>
+
+    <!-- Leaflet JS Library Core -->
+    <script src="https://unpkg.com" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <!-- PapaParse Streaming CSV Processor Engine -->
+    <script src="https://cloudflare.com" integrity="sha256-69N7wN8S7f9KwwpEwXUoAnS0BwNf9fL69C7A1H9e55M=" crossorigin="anonymous"></script>
+
+    <script>
+        // 1. Root Repository Route Configuration
+        const GITHUB_BASE_URL = "https://github.com";
+
+        // 2. Mediterranean View Map Initialization
+        const map = L.map('map').setView([35.5000, 25.0000], 5);
+
+        // 3. Clean Architectural Map Tiles Addition
+        L.tileLayer('https://{s}://{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors &copy; <a href="https://carto.com">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 20
+        }).addTo(map);
+
+        // 4. Exact File Registry Target Queue
+        const csvFiles = [
+            'alexandria_node.csv',
+            'byzantium_node.csv',
+            'cos_node.csv',
+            'rome_node.csv'
+        ];
+
+        // Global dataset placeholder designed to easily wire up the search filter later
+        const locationRegistry = {};
+
+        // 5. Asynchronous Data Acquisition Loop
+        async function loadAndProcessAllCSVNodes() {
+            try {
+                for (const fileName of csvFiles) {
+                    // Fetch files from local relative web directory paths
+                    const fileResponse = await fetch(`./${fileName}`);
+                    if (!fileResponse.ok) {
+                        console.warn(`File target missing, skipped: ${fileName}`);
+                        continue;
+                    }
+                    const rawCsvText = await fileResponse.text();
+                    
+                    // Parse text layout structure stream natively
+                    const parsedData = Papa.parse(rawCsvText, { header: true, skipEmptyLines: true });
+                    
+                    // Print headers to browser log for absolute confirmation during development
+                    console.log(`Detected columns inside [${fileName}]:`, Object.keys(parsedData.data[0] || {}));
+
+                    // Loop individual table entries
+                    parsedData.data.forEach(row => {
+                        // Normalize header structures to safely process varying user naming variants
+                        const normalizedRow = {};
+                        Object.keys(row).forEach(key => {
+                            normalizedRow[key.trim().toLowerCase()] = row[key];
+                        });
+
+                        // Fallback matching pipeline maps keys fluidly
+                        const lat = parseFloat(normalizedRow.latitude || normalizedRow.lat || normalizedRow.y_coord);
+                        const lng = parseFloat(normalizedRow.longitude || normalizedRow.lng || normalizedRow.long || normalizedRow.x_coord);
+                        
+                        // Break operation loop early if critical point coordinates are corrupt
+                        if (isNaN(lat) || isNaN(lng)) return; 
+
+                        const locationName = normalizedRow.location_name || normalizedRow.location || normalizedRow.node_name || "Ancient Site";
+                        const textTitle = normalizedRow.text_title || normalizedRow.title || normalizedRow.text || "Untitled Document";
+                        const textAuthor = normalizedRow.author || normalizedRow.creator || "Unknown Classical Author";
+                        const targetFolder = normalizedRow.folder || normalizedRow.directory || "raw_texts";
+                        const documentFile = normalizedRow.file_name || normalizedRow.file || normalizedRow.document;
+
+                        // Create unique geographic coordinate anchor to pool documents to specific nodes
+                        const coordinateKey = `${lat.toFixed(5)},${lng.toFixed(5)}`;
+
+                        if (!locationRegistry[coordinateKey]) {
+                            locationRegistry[coordinateKey] = {
+                                name: locationName,
+                                lat: lat,
+                                lng: lng,
+                                textEntries: []
+                            };
+                        }
+
+                        // Push dynamic linked asset definitions down into coordinate collection point
+                        locationRegistry[coordinateKey].textEntries.push({
+                            title: textTitle,
+                            author: textAuthor,
+                            folder: targetFolder,
+                            file: documentFile
+                        });
+                    });
+                }
+
+                // Render compiled markers once files process cleanly
+                renderAggregatedMarkers();
+
+            } catch (runtimeError) {
+                console.error("Critical Failure running asynchronous parsing engine:", runtimeError);
+            }
+        }
+
+        // 6. Marker & Popup Table Element Layer Printer
+        function renderAggregatedMarkers() {
+            Object.values(locationRegistry).forEach(siteNode => {
+                // Build robust, clean layout inside popups on node maps
+                let customPopupLayout = `<div class="popup-title">${siteNode.name}</div>`;
+                customPopupLayout += `<table class="popup-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Ancient Text</th>
+                                                <th>Author</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>`;
+
+                // Enumerate linked text records straight out of the active point collection
+                siteNode.textEntries.forEach(item => {
+                    // Combines repository baseline, destination folders, and extensions flawlessly
+                    const directGitHubUrl = `${GITHUB_BASE_URL}${item.folder}/${item.file}`;
+                    
+                    customPopupLayout += `<tr>
+                                            <td><a href="${directGitHubUrl}" target="_blank">${item.title}</a></td>
+                                            <td>${item.author}</td>
+                                          </tr>`;
+                });
+
+                customPopupLayout += `  </tbody>
+                                      </table>`;
+
+                // Add standard marker pinning coordinate geometries directly onto tracking map
+                L.marker([siteNode.lat, siteNode.lng])
+                 .bindPopup(customPopupLayout)
+                 .addTo(map);
+            });
+        }
+
+        // Initialize queue processing pipeline as soon as web viewport elements initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            loadAndProcessAllCSVNodes();
+        });
+    </script>
+</body>
+</html>
