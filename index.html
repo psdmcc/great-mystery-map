@@ -37,7 +37,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[16.57831188163884,-9.009178770864946],[60.57625188163884,57.488466509863414]]);
+        }).fitBounds([[16.57831188163884,-9.009178770864947],[60.57625188163884,57.488466509863414]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -155,11 +155,11 @@
         }
 
         function style_mysterium_geospatial_vectors_0_0(feature) {
-            switch(String(feature.properties['CASE WHEN "Work_Title" LIKE \'%Hippocrates%\' OR "Work_Title" LIKE \'%Hippocratis%\' OR "Work_Title" LIKE \'%Plato%\' OR "Work_Title" LIKE \'%Euripides%\' THEN \'Tier 1: Classical Antiquity (5th-4th C. BCE)\' WHEN "Work_Title" LIKE \'%Galen%\' OR "Work_Title" LIKE \'%Galenus%\' OR "Work_Title" LIKE \'%Artemidorus%\' OR "Work_Title" LIKE \'%Cebes%\' OR "Work_Title" LIKE \'%Vettius%\' THEN \'Tier 2: Roman Imperial Peak (1st-2nd C. CE)\' WHEN "Work_Title" LIKE \'%Philostorgius%\' OR "Work_Title" LIKE \'%Sozomen%\' OR "Work_Title" LIKE \'%Theodoret%\' OR "Work_Title" LIKE \'%Paschale%\' OR "Work_Title" LIKE \'%Catenae%\' OR "Work_Title" LIKE \'%Agathias%\' OR "Work_Title" LIKE \'%Socrates%\' THEN \'Tier 4: Byzantine Transition (6th C. CE+)\' ELSE \'Tier 3: Late Antiquity (3rd-5th C. CE)\' END '])) {
-                default:
+            switch(String(feature.properties['temporal_scale'])) {
+                case 'Tier 1: Classical Antiquity (5th-4th C. BCE)':
                     return {
                 pane: 'pane_mysterium_geospatial_vectors_0',
-                radius: 60.0,
+                radius: 10.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -172,26 +172,10 @@
                 interactive: true,
             }
                     break;
-                case 'Tier 1: Classical Antiquity (5th-4th C. BCE)':
-                    return {
-                pane: 'pane_mysterium_geospatial_vectors_0',
-                radius: 60.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(245,144,83,1.0)',
-                interactive: true,
-            }
-                    break;
                 case 'Tier 2: Roman Imperial Peak (1st-2nd C. CE)':
                     return {
                 pane: 'pane_mysterium_geospatial_vectors_0',
-                radius: 30.0,
+                radius: 20.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -200,14 +184,14 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(250,250,250,1.0)',
+                fillColor: 'rgba(253,174,97,1.0)',
                 interactive: true,
             }
                     break;
                 case 'Tier 3: Late Antiquity (3rd-5th C. CE)':
                     return {
                 pane: 'pane_mysterium_geospatial_vectors_0',
-                radius: 34.0,
+                radius: 10.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -216,14 +200,14 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(221,241,180,1.0)',
+                fillColor: 'rgba(4,79,255,1.0)',
                 interactive: true,
             }
                     break;
                 case 'Tier 4: Byzantine Transition (6th C. CE+)':
                     return {
                 pane: 'pane_mysterium_geospatial_vectors_0',
-                radius: 30.0,
+                radius: 10.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -232,7 +216,7 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(145,203,168,1.0)',
+                fillColor: 'rgba(200,164,221,1.0)',
                 interactive: true,
             }
                     break;
@@ -275,7 +259,7 @@
         bounds_group.addLayer(layer_mysterium_geospatial_vectors_0);
         map.addLayer(layer_mysterium_geospatial_vectors_0);
         var overlaysTree = [
-            {label: 'mysterium_geospatial_vectors<br /><table><tr><td style="text-align: center;"><img src="legend/mysterium_geospatial_vectors_0_0.png" /></td><td></td></tr><tr><td style="text-align: center;"><img src="legend/mysterium_geospatial_vectors_0_Tier1ClassicalAntiquity5th4thCBCE1.png" /></td><td>Tier 1: Classical Antiquity (5th-4th C. BCE)</td></tr><tr><td style="text-align: center;"><img src="legend/mysterium_geospatial_vectors_0_Tier2RomanImperialPeak1st2ndCCE2.png" /></td><td>Tier 2: Roman Imperial Peak (1st-2nd C. CE)</td></tr><tr><td style="text-align: center;"><img src="legend/mysterium_geospatial_vectors_0_Tier3LateAntiquity3rd5thCCE3.png" /></td><td>Tier 3: Late Antiquity (3rd-5th C. CE)</td></tr><tr><td style="text-align: center;"><img src="legend/mysterium_geospatial_vectors_0_Tier4ByzantineTransition6thCCE4.png" /></td><td>Tier 4: Byzantine Transition (6th C. CE+)</td></tr><tr><td style="text-align: center;"><img src="legend/mysterium_geospatial_vectors_0_5.png" /></td><td></td></tr></table>', layer: layer_mysterium_geospatial_vectors_0},]
+            {label: 'mysterium_geospatial_vectors<br /><table><tr><td style="text-align: center;"><img src="legend/mysterium_geospatial_vectors_0_Tier1ClassicalAntiquity5th4thCBCE0.png" /></td><td>Tier 1: Classical Antiquity (5th-4th C. BCE)</td></tr><tr><td style="text-align: center;"><img src="legend/mysterium_geospatial_vectors_0_Tier2RomanImperialPeak1st2ndCCE1.png" /></td><td>Tier 2: Roman Imperial Peak (1st-2nd C. CE)</td></tr><tr><td style="text-align: center;"><img src="legend/mysterium_geospatial_vectors_0_Tier3LateAntiquity3rd5thCCE2.png" /></td><td>Tier 3: Late Antiquity (3rd-5th C. CE)</td></tr><tr><td style="text-align: center;"><img src="legend/mysterium_geospatial_vectors_0_Tier4ByzantineTransition6thCCE3.png" /></td><td>Tier 4: Byzantine Transition (6th C. CE+)</td></tr><tr><td style="text-align: center;"><img src="legend/mysterium_geospatial_vectors_0_4.png" /></td><td></td></tr></table>', layer: layer_mysterium_geospatial_vectors_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
