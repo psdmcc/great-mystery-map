@@ -1,0 +1,35 @@
+name: Automated Corpus Scraper and Map Builder
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs automatically every day at midnight
+  workflow_dispatch: # Allows you to trigger it manually from the GitHub website
+
+jobs:
+  build-and-scrape:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+
+      - name: Initialize Production Python Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install System Dependencies
+        run: |
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run High-Fidelity KML Compiler Engine
+        run: python mysterium_kml_builder.py
+
+      - name: Commit and Push Compiled Map to Live Site
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add mysterium_globe.kml
+          git diff-index --quiet HEAD || git commit -m "Automated update of geospatial vectors [skip ci]"
+          git push origin main
