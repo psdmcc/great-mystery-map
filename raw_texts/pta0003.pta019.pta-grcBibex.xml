@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="la">Prologi varii</title>
+            <author>
+               <persName key="pta0003">Eusebius Caesariensis</persName>
+            </author>
+            <editor>
+               <persName xml:id="CB">Cordula Bandt</persName>
+               <roleName>Editor</roleName>
+               <orgName>Berlin-Brandenburgische Akademie der Wissenschaften</orgName>
+            </editor>
+            <editor>
+               <persName xml:id="FXR">Franz Xaver Risch</persName>
+               <roleName>Editor</roleName>
+               <orgName>Berlin-Brandenburgische Akademie der Wissenschaften</orgName>
+            </editor>
+         </titleStmt>
+         <publicationStmt>
+            <authority>Berlin-Brandenburgische Akademie der Wissenschaften</authority>
+            <distributor>Patristic Text Archive</distributor>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution ShareAlike 4.0 International License</licence>
+            </availability>
+            <date>2020</date>
+            <idno type="PTA">pta0003.pta019</idno>
+            <idno type="CPG"/>
+            <idno type="BHG"/>
+            <idno type="Aldama"/>
+            <idno type="Pinakes-Oeuvre"/>
+         </publicationStmt>
+         <sourceDesc>
+            <listBibl>
+               <biblStruct type="book" xml:id="Bandt2018">
+                  <monogr>
+                     <title level="m">Die Prologtexte zu den Psalmen von Origenes und Eusebius</title>
+                     <idno type="ISBN">978-3-11-055836-4</idno>
+                     <editor>
+                        <forename>Cordula</forename>
+                        <surname>Bandt</surname>
+                     </editor>
+                     <editor>
+                        <forename>Franz Xaver</forename>
+                        <surname>Risch</surname>
+                     </editor>
+                     <editor>
+                        <forename>Barbara</forename>
+                        <surname>Villani</surname>
+                     </editor>
+                     <imprint>
+                        <pubPlace>Berlin; Boston</pubPlace>
+                        <publisher>De Gruyter</publisher>
+                        <date>2018</date>
+                     </imprint>
+                  </monogr>
+                  <series>
+                     <title level="s">Texte und Untersuchungen zur Geschichte der altchristlichen Literatur</title>
+                     <biblScope unit="volume">183</biblScope>
+                  </series>
+               </biblStruct>
+            </listBibl>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <variantEncoding method="parallel-segmentation" location="internal"/>
+         <refsDecl n="CTS">
+            <cRefPattern n="part"
+                         matchPattern="(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
+         </refsDecl>
+         <refsDecl xml:id="biblical">
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+               <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
+               <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+               <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+)"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+               <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="pta">
+            <cRefPattern matchPattern="(.+)" replacementPattern="https://pta.bbaw.de/text/$1">
+               <p>References to PTA-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="perseus">
+            <cRefPattern matchPattern="(.+)"
+                         replacementPattern="https://scaife.perseus.org/reader/$1">
+               <p>References to Perseus-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+            This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+          </p>
+               <p xml:id="biblical-quotations" ana="not-annotated not-identified">
+            Biblical quotations are not annotated and not referenced. References follow the scheme declared <ref target="#biblical">above</ref>.
+          </p>
+               <p xml:id="other-references" ana="not-annotated not-identified">
+            Other references are not annotated and not referenced. References to texts in the PTA follow the scheme declared <ref target="#pta">above (pta)</ref>, references to texts available in the <ref target="https://scaife.perseus.org/">Perseus Digital Library</ref> follow the scheme declared <ref target="#perseus">above (perseus)</ref>. If the referenced text is not available in either repository, the reference for the referenced text is given in the attribute @source in the form “Authorabbrev_Workabbrev_Location”; ancient Greek authors should be referenced according to the lists of H. G. Liddell/R. Scott/H. S. Jones, A Greek - English Lexicon, Oxford 1968 (9th edition) and G. W. H. Lampe, A Patristic Greek Lexicon, Oxford 1987 (3rd edition), for Latin ones the abbreviations of the Thesaurus Linguae Latinae (cf. Index librorum scriptorum inscriptionum ex quibus exempla afferuntur) should be used, with dots in the abbreviations deleted without replacement.
+          </p>
+               <p xml:id="persons" ana="not-annotated not-identified">
+            Persons are not annotated and not  referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> for all other persons.
+          </p>
+               <p xml:id="groups" ana="not-annotated not-identified">
+            Groups of persons and organisations are not annotated and not referenced with IDs according to the IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json">PTA groups index</ref> for all other groups.
+          </p>
+               <p xml:id="places" ana="not-annotated not-identified">
+            Places are not annotated and not referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> IDs.
+          </p>
+               <p xml:id="text-analysis" ana="not-tagged not-analyzed">Words are not tagged and not analyzed.</p>
+            </interpretation>
+            <normalization>
+               <p><!--Usage of capitalisation, ν-ephelkystikon, σ: οὕτως, Iota subscriptum/adscriptum, Trema, Enclitics, apostroph/elisions, number signs, splitting of words, nomina sacra, ...--></p>
+            </normalization>
+            <punctuation>
+               <p><!--Usage (and/or normalisation) of full stop, comma, semicolon, question mark, dash and parenthesis--></p>
+            </punctuation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+          Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+          Patristic Text Archive Status of edition
+        </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+            Critical edition in which the text-critical variants have been encoded.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+            Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+              Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+            </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+              Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+            </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+          Patristic Text Archive Status of annotation
+        </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+            All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+            Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+            No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+            All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+            Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+          </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+            No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="analysisstatus">
+               <bibl>Patristic Text Archive Status of linguistic analysis</bibl>
+               <category xml:id="automatically-tagged">
+                  <catDesc>Words are automatically tagged.</catDesc>
+               </category>
+               <category xml:id="manually-tagged">
+                  <catDesc>Words are manually tagged.</catDesc>
+               </category>
+               <category xml:id="not-tagged">
+                  <catDesc>Words are not tagged.</catDesc>
+               </category>
+               <category xml:id="automatically-analyzed">
+                  <catDesc>Words are automatically analyzed.</catDesc>
+               </category>
+               <category xml:id="manually-analyzed">
+                  <catDesc>Words are manually analyzed.</catDesc>
+               </category>
+               <category xml:id="not-analyzed">
+                  <catDesc>Words are not analyzed.</catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+                    url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <creation>
+            <date notBefore="0300" notAfter="0339"/>
+            <placeName ref="https://pleiades.stoa.org/places/67841">Caesarea</placeName>
+         </creation>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>Scholarly</term>
+            </keywords>
+            <keywords scheme="#editionstatus">
+               <term>critical-edition-no-app</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2023-05-22" who="#AvS">
+          Updated file to comply with version 3.0 of <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
+         </change>
+         <change when="2020-09-20" who="#AvS">Converted</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="praefatio" xml:lang="deu">
+            <p>
+          Cf.
+          <ref target="https://nbn-resolving.org/urn:nbn:de:kobv:b4-opus4-33382">die Einleitungen im Buch</ref>.</p>
+         </div>
+         <div type="edition"
+              n="urn:cts:pta:pta0003.pta019.pta-grcBibex"
+              xml:lang="grc">
+            <div type="textpart" subtype="book" n="Didascalia">
+               <head>
+                  <title>
+              Ὡς ἡ βίβλος τῶν ψαλμῶν καινὴν διδασκαλίαν περιέχει μετὰ τὴν Μωϋσέως νομοθεσίαν· καὶ ὅτι δευτέρα μετὰ τὴν Μωϋσέως γραφὴν διδασκαλικὴ βίβλος αὕτη τυγχάνει·
+            </title>
+               </head>
+               <p>
+            Μετὰ γοῦν τὴν Μωϋσέως καὶ Ἰησοῦ τελευτὴν καὶ μετὰ τοὺς κριτὰς Δαυὶδ γενόμενος ὡσανεὶ τοῦ σωτῆρος αὐτὸς χρηματίσαι πατὴρ καταξιωθεὶς καινὸν τρόπον τὸν τῆς ψαλμῳδίας πρῶτος Ἑβραίοις παρέδωκεν. δι’ ἧς ἀναιρεῖ μὲν τὰ παρὰ Μωϋσεῖ περὶ θυσιῶν νενομοθετημένα, καινὸν δὲ τὸν δι’ ὕμνων καὶ ἀλαλαγμῶν τρόπον τῆς τοῦ θεοῦ λατρείας εἰσάγει· καὶ ἄλλα δὲ πλεῖστα τὸν Μωϋσέως νόμον ἐπαναβεβηκότα δι’ ὅλης αὐτοῦ τῆς πραγματείας διδάσκει.
+          </p>
+            </div>
+            <div type="textpart" subtype="book" n="Periochae">
+               <head>
+                  <title>Περιοχαὶ εἰς τοὺς ψαλμούς</title>
+               </head>
+               <p>
+                  <num>α</num>. Προτροπὴ θεοσεβείας καὶ ἀποτροπὴ τοῦ ἐναντίου.
+          </p>
+               <p>
+                  <num>β</num>. Προφητεία περὶ Χριστοῦ καὶ κλήσεως ἐθνῶν.</p>
+               <p>
+                  <num>γ</num>. Προφητεία γενησομένων ἀγαθῶν τῷ Δαυίδ.</p>
+               <p>
+                  <num>δ</num>. Προφητεία τοῦ Δαυὶδ περὶ ὧν πέπονθεν.
+          </p>
+               <p>
+                  <num>ε</num>. Ἐκ προσώπου τῆς ἐκκλησίας προσευχή.
+          </p>
+               <p>
+                  <num>ϛ</num>. Διδασκαλία ἐξομολογήσεως.</p>
+               <p>
+                  <num>ζ</num>. Τῷ Δαυὶδ ἐξομολόγησις καὶ προφητεία κλήσεως ἐθνῶν.
+          </p>
+               <p>
+                  <num>η</num>. Προφητεία κλήσεως ἐθνῶν.</p>
+               <p>
+                  <num>θ</num>. Θάνατος Χριστοῦ καὶ ἀνάστασις καὶ βασιλείας παράληψις ἐχθρῶν τε πάντων καθαίρεσις.
+          </p>
+               <p>
+                  <num>ι</num>. Ἐπινίκιος ὕμνος τοῦ κατὰ θεὸν ἀγωνιζομένου.</p>
+               <p>
+                  <num>ια</num>. Κατηγορία πονηρῶν καὶ προφητεία Χριστοῦ παρουσίας.</p>
+               <p>
+                  <num>ιβ</num>. Ἐχθρῶν ἐπανάστασις καὶ προσδοκία Χριστοῦ παρουσίας.
+          </p>
+               <p>
+                  <num>ιγ</num>. Κατηγορία πονηρῶν καὶ προφητεία Χριστοῦ παρουσίας.
+          </p>
+               <p>
+                  <num>ιδ</num>. Τοῦ κατὰ θεὸν τελείου ἀποκατάστασις.
+          </p>
+               <p>
+                  <num>ιε</num>. Ἐκκλησίας ἐκλογὴ καὶ Χριστοῦ ἀνάστασις.
+          </p>
+               <p>
+                  <num>ιϛ</num>. Τελείου ἀνδρὸς ἢ αὐτοῦ τοῦ Χριστοῦ προσευχὴ ὑπὲρ τῶν δι’ αὐτοῦ σωθησομένων.
+          </p>
+               <p>
+                  <num>ιζ</num>. Εὐχαριστία τοῦ Δαυὶδ καὶ προφητεία Χριστοῦ παρουσίας καὶ ἀναλήψεως.
+          </p>
+               <p>
+                  <num>ιη</num>. Θεολογία σὺν διδασκαλίᾳ ἠθικῇ.
+          </p>
+               <p>
+                  <num>ιθ</num>. Εὐχὴ τῶν συμπραττόντων τῷ Δαυὶδ δικαίων.
+          </p>
+               <p>
+                  <num>κ</num>. Ἔντευξις τῶν συμπραττόντων τῷ Δαυίδ.
+          </p>
+               <p>
+                  <num>κα</num>. Προφητεία Χριστοῦ παθῶν καὶ ἐθνῶν κλῆσις.
+          </p>
+               <p>
+                  <num>κβ</num>. Διδασκαλία καὶ νέου λαοῦ εἰσαγωγή.
+          </p>
+               <p>
+                  <num>κγ</num>. Προφητεία κλήσεως ἐθνῶν καὶ τελείωσις τῶν σωζομένων.</p>
+               <p>
+                  <num>κδ</num>. Διδασκαλία ἐξομολογήσεως.</p>
+               <p>
+                  <num>κε</num>. Ἔντευξις τοῦ κατὰ θεὸν προκόπτοντος.</p>
+               <p>
+                  <num>κϛ</num>. Εὐχαριστία καὶ αἴτησις ἀγαθῶν.</p>
+               <p>
+                  <num>κζ</num>. Δέησις μετὰ προφητείας.</p>
+               <p>
+                  <num>κη</num>. Προφητεία αἰνιγματώδης σὺν θεολογίᾳ.
+          </p>
+               <p>
+                  <num>κθ</num>. Εὐχαριστία σὺν ἐξομολογήσει.</p>
+               <p>
+                  <num>λ</num>. Ἐξομολόγησις σὺν ἱκετηρίᾳ.</p>
+               <p>
+                  <num>λα</num>. Προφητεία τῶν διὰ Χριστοῦ σωθησομένων.</p>
+               <p>
+                  <num>λβ</num>. Παρακέλευσις ὑμνολογίας σὺν θεολογίᾳ.
+          </p>
+               <p>
+                  <num>λγ</num>. Διδασκαλία εὐχαριστίας.</p>
+               <p>
+                  <num>λδ</num>. Ἱκετηρία δικαίου καὶ προφητεία περὶ Χριστοῦ.</p>
+               <p>
+                  <num>λε</num>. Ἔλεγχος ἀσεβῶν σὺν θεολογίᾳ.
+          </p>
+               <p>
+                  <num>λϛ</num>. Διδασκαλία θεοσεβοῦς βίου.</p>
+               <p>
+                  <num>λζ</num>. Διδασκαλία ἐξομολογήσεως.</p>
+               <p>
+                  <num>λη</num>. Ἔντευξις σὺν ἐξομολογήσει.
+          </p>
+               <p>
+                  <num>λθ</num>. Εὐχαριστία τοῦ κατὰ θεὸν σωθέντος καὶ μνήμη ἐκκλησίας.
+          </p>
+               <p>
+                  <num>μ</num>. Προφητεία περὶ Χριστοῦ καὶ περὶ τοῦ προδότου.</p>
+               <p>
+                  <num>μα</num>. Ἱκετηρία προφητῶν ἐπὶ τῇ ἀποβολῇ τοῦ Ἰουδαίων ἔθνους.
+          </p>
+               <p>
+                  <num>μβ</num>. Ἱκετηρία προφητῶν ἐπὶ τῇ ἀποβολῇ τοῦ Ἰουδαίων ἔθνους.
+          </p>
+               <p>
+                  <num>μγ</num>. Ἱκετηρία προφητῶν ἐπὶ τῇ ἀποβολῇ τοῦ Ἰουδαίων ἔθνους.
+          </p>
+               <p>
+                  <num>μδ</num>. Ἐπιφάνεια Χριστοῦ βασιλείας.
+          </p>
+               <p>
+                  <num>με</num>. Ἀποστόλων κήρυγμα.</p>
+               <p>
+                  <num>μϛ</num>. Κλῆσις ἐθνῶν.
+          </p>
+               <p>
+                  <num>μζ</num>. Ὕμνος εἰς θεὸν ὑπὲρ τῆς ἐκκλησίας καὶ καθαίρεσις διωγμῶν.
+          </p>
+               <p>
+                  <num>μη</num>. Θείας κρίσεως διδασκαλία.
+          </p>
+               <p>
+                  <num>μθ</num>. Ἀνατροπὴ τοῦ περὶ θυσιῶν Μωϋσέως νόμου καὶ εἰσαγωγὴ τοῦ τῆς Kαινῆς διαθήκης τρόπου.
+          </p>
+               <p>
+                  <num>ν</num>. Διδασκαλία ἐξομολογήσεως.</p>
+               <p>
+                  <num>να</num>. Ἔλεγχος μοχθηροῦ τρόπου καὶ τέλος τοῦ αὐτοῦ.
+          </p>
+               <p>
+                  <num>νβ</num>. Σωτήριος ἐπιφάνεια καὶ ἀθεότητος ἀπαλλαγή.
+          </p>
+               <p>
+                  <num>νγ</num>. Προσευχὴ τοῦ διὰ θεὸν ἐλαυνομένου.
+          </p>
+               <p>
+                  <num>νδ</num>. Δήλωσις τῶν κατὰ Χριστοῦ τετολμημένων.
+          </p>
+               <p>
+                  <num>νε</num>. Δικαίου εὐχαριστία ῥυσθέντος ἐξ ἐχθρῶν.
+          </p>
+               <p>
+                  <num>νϛ</num>. Εὐχαριστία τοῦ Δαυὶδ καὶ προφητεία κλήσεως ἐθνῶν.
+          </p>
+               <p>
+                  <num>νζ</num>. Διδασκαλία τῆς τοῦ θεοῦ δικαιοκρισίας.
+          </p>
+               <p>
+                  <num>νη</num>. Κλῆσις ἐθνῶν καὶ Ἰουδαίων ἀποβολή.
+          </p>
+               <p>
+                  <num>νθ</num>. Ἀποβολὴ τοῦ Ἰουδαίων ἔθνους καὶ κλῆσις ἐθνῶν.
+          </p>
+               <p>
+                  <num>ξ</num>. Δέησις σὺν εὐχαριστίᾳ.
+          </p>
+               <p>
+                  <num>ξα</num>. Διδασκαλία θεραπευτική.
+          </p>
+               <p>
+                  <num>ξβ</num>. Εὐχαριστία τοῦ κατὰ θεὸν τελείου.</p>
+               <p>
+                  <num>ξγ</num>. Διδασκαλία θεοσεβείας ἀθλητοῦ.
+          </p>
+               <p>
+                  <num>ξδ</num>. Κλῆσις ἐθνῶν.</p>
+               <p>
+                  <num>ξε</num>. Κλῆσις ἐθνῶν καὶ ἀποστόλων μαρτυρία.
+          </p>
+               <p>
+                  <num>ξϛ</num>. Κλῆσις ἐθνῶν καὶ ἀποστόλων κήρυγμα.
+          </p>
+               <p>
+                  <num>ξζ</num>. Χριστοῦ ἐνανθρώπησις καὶ ἐθνῶν κλῆσις.
+          </p>
+               <p>
+                  <num>ξη</num>. Πάθη Χριστοῦ καὶ Ἰουδαίων ἀποβολή.</p>
+               <p>
+                  <num>ξθ</num>. Ἱκετηρία δικαίου ἢ καὶ αὐτοῦ τοῦ Χριστοῦ.</p>
+               <p>
+                  <num>ο</num>. Χριστοῦ πάθη καὶ ἀνάστασις.
+          </p>
+               <p>
+                  <num>οα</num>. Προφητεία Χριστοῦ βασιλείας καὶ κλήσεως ἐθνῶν.</p>
+               <p>
+                  <num>οβ</num>. Ἐξομολόγησις τῆς ἀνθρωπίνης ἀσθενείας ἐπὶ τῇ τῶν ἀσεβῶν εὐπραγίᾳ καὶ τῆς τοῦ θεοῦ μακροθυμίας.
+          </p>
+               <p>
+                  <num>ογ</num>. Προαναφώνησις τῆς ἐσχάτης Ἰουδαίων πολιορκίας τῆς ἐπὶ Οὐεσπασιανοῦ καὶ Τίτου γενομένης.
+          </p>
+               <p>
+                  <num>οδ</num>. Χριστοῦ θεολογία καὶ ὑπόμνησις τοῦ θείου δικαστηρίου.
+          </p>
+               <p>
+                  <num>οε</num>. Ἐκδίκησις κατὰ ἀσεβῶν τῆς τοῦ θεοῦ κρίσεως.
+          </p>
+               <p>
+                  <num>οϛ</num>. Περὶ τῆς τοῦ θεοῦ μακροθυμίας καὶ τῶν θαυμασίων ἔργων αὐτοῦ.</p>
+               <p>
+                  <num>οζ</num>. Χριστοῦ διαστολὴ πρὸς τὴν ἐκκλησίαν περὶ τῆς τοῦ προτέρου λαοῦ παρανομίας.</p>
+               <p>
+                  <num>οη</num>. Προφητεία τῶν κατὰ Ἀντίοχον Ἰουδαίοις συμβάντων ἢ ἱστορία ἐν τοῖς Μακκαβαίοις.
+          </p>
+               <p>
+                  <num>οθ</num>. Προφητεία τῆς ὑπὸ Ἀσσυρίων πολιορκίας καὶ δέησις περὶ τῆς τοῦ Χριστοῦ ἐπιφανείας.</p>
+               <p>
+                  <num>π</num>. Κλῆσις ἐθνῶν καὶ διδασκαλία τῶν συμβεβηκότων τῷ προτέρῳ λαῷ.
+          </p>
+               <p>
+                  <num>πα</num>. Ἔλεγχος τῶν ἀρχόντων τοῦ Ἰουδαίων ἔθνους καὶ προφητεία περὶ τῶν ἐθνῶν.
+          </p>
+               <p>
+                  <num>πβ</num>. Δέησις ὑπὲρ τοῦ πεπονθότος τὰ σκυθρωπὰ λαοῦ καὶ προφητεία περὶ τοῦ τέλους τῶν ἐχθρῶν τοῦ θεοῦ.
+          </p>
+               <p>
+                  <num>πγ</num>. Χριστοῦ ἐνανθρώπησις καὶ περὶ τῶν ἐκκλησιῶν.
+          </p>
+               <p>
+                  <num>πδ</num>. Προφητεία εἰς Χριστὸν καὶ τοὺς δι’ αὐτοῦ λελυτρωμένους.
+          </p>
+               <p>
+                  <num>πε</num>. Προσευχὴ τῷ Δαυὶδ καὶ προφητεία κλήσεως ἐθνῶν.
+          </p>
+               <p>
+                  <num>πϛ</num>. Χριστοῦ ἐνανθρώπησις καὶ κλῆσις ἐθνῶν.
+          </p>
+               <p>
+                  <num>πζ</num>. Χριστοῦ θάνατον προφητεύει.
+          </p>
+               <p>
+                  <num>πη</num>. Χριστοῦ βασιλεία ἐκ σπέρματος Δαυίδ.
+          </p>
+               <p>
+                  <num>πθ</num>. Ἰουδαίων ἀποβολή.</p>
+               <p>
+                  <num>ϙ</num>. Χριστοῦ νίκη καὶ παντὸς τοῦ κατ’  αὐτὸν τελειουμένου.
+          </p>
+               <p>
+                  <num>ϙα</num>. Περὶ τῆς κατὰ θεὸν ἀναπαύσεως.
+          </p>
+               <p>
+                  <num>ϙβ</num>. Ὕμνος βασιλείας Χριστοῦ ἐπὶ τῆς πρώτης αὐτοῦ παρουσίας.
+          </p>
+               <p>
+                  <num>ϙγ</num>. Περὶ τῶν κατὰ τῆς ἐκκλησίας διωγμῶν.
+          </p>
+               <p>
+                  <num>ϙδ</num>. Κλῆσις Ἰουδαίων καὶ ἀπόγνωσις τῶν αὐτῶν.</p>
+               <p>
+                  <num>ϙε</num>. Κλῆσις ἐθνῶν καὶ Χριστοῦ παρουσία.
+          </p>
+               <p>
+                  <num>ϙϛ</num>. Ὕμνος βασιλείας Χριστοῦ ἐπὶ τῆς δευτέρας αὐτοῦ παρουσίας.
+          </p>
+               <p>
+                  <num>ϙζ</num>. Κλῆσις ἐθνῶν καὶ Χριστοῦ παρουσία.
+          </p>
+               <p>
+                  <num>ϙη</num>. Ὕμνος βασιλείας Χριστοῦ.
+          </p>
+               <p>
+                  <num>ϙθ</num>. Κλῆσις ἐθνῶν.
+          </p>
+               <p>
+                  <num>ρ</num>. Ὕμνος τοῦ κατὰ θεὸν τελειουμένου.
+          </p>
+               <p>
+                  <num>ρα</num>. Ὀδυρμὸς ἐπὶ τῷ προτέρῳ λαῷ καὶ προφητεία νεοῦ λαοῦ καὶ κλῆσις ἐθνῶν.</p>
+               <p>
+                  <num>ρβ</num>. Διδασκαλία εὐχαριστίας.</p>
+               <p>
+                  <num>ργ</num>. Διδασκαλία ἐξομολογήσεως.
+          </p>
+               <p>
+                  <num>ρδ</num>. Διδασκαλία τοῖς ἔθνεσι τῶν εἰς τὸν πρότερον λαὸν τοῦ θεοῦ εὐεργεσιῶν.</p>
+               <p>
+                  <num>ρε</num>. Διδασκαλία δυσσεβείας τοῦ Ἰουδαίων ἔθνους.</p>
+               <p>
+                  <num>ρϛ</num>. Προφητεία κλήσεως ἐθνῶν καὶ τῆς εἰς ἀνθρώπους τοῦ θεοῦ λόγου ἐπιλάμψεως.
+          </p>
+               <p>
+                  <num>ρζ</num>. Κλῆσις ἐθνῶν.</p>
+               <p>
+                  <num>ρη</num>. Πάθη Χριστοῦ.</p>
+               <p>
+                  <num>ρθ</num>. Νίκη Χριστοῦ.</p>
+               <p>
+                  <num>ρι</num>. Εὐχαριστία Χριστοῦ.</p>
+               <p>
+                  <num>ρια</num>. Διδασκαλία Χριστοῦ.
+          </p>
+               <p>
+                  <num>ριβ</num>. Νέου λαοῦ κλῆσις.</p>
+               <p>
+                  <num>ριγ</num>. Νέου λαοῦ διδασκαλία.</p>
+               <p>
+                  <num>ριδ</num>. Νέου λαοῦ προκοπή.</p>
+               <p>
+                  <num>ριε</num>. Νέου λαοῦ τελείωσις.</p>
+               <p>
+                  <num>ριϛ</num>. Κλῆσις ἐθνῶν.</p>
+               <p>
+                  <num>ριζ</num>. Νίκη τῶν ἐν Χριστῷ ἀγωνιζομένων καὶ προφητεία περὶ Χριστοῦ.
+          </p>
+               <p>
+                  <num>ριη</num>. Στοιχείωσις τῆς κατὰ θεὸν εἰσαγωγῆς.
+          </p>
+               <p>
+                  <num>ριθ</num>. Παροικίας.</p>
+               <p>
+                  <num>ρκ</num>. Ἐπανόδου Βαβυλῶνος καὶ τῆς διασπορᾶς.</p>
+               <p>
+                  <num>ρκα</num>. Ἀγαθῶν εὐαγγέλια.
+          </p>
+               <p>
+                  <num>ρκβ</num>. Εὐχῆς.
+          </p>
+               <p>
+                  <num>ρκγ</num>. Εὐχαριστίας.
+          </p>
+               <p>
+                  <num>ρκδ</num>. Ἀποκαταστάσεως.
+          </p>
+               <p>
+                  <num>ρκε</num>. Προσδοκία μελλόντων.</p>
+               <p>
+                  <num>ρκϛ</num>. Οἰκοδομὴ ἐκκλησίας.</p>
+               <p>
+                  <num>ρκζ</num>. Κλῆσις ἐθνῶν.</p>
+               <p>
+                  <num>ρκη</num>. Νίκης θεοῦ στρατιᾶς.
+          </p>
+               <p>
+                  <num>ρκθ</num>. Εὐχῆς μαρτύρων.</p>
+               <p>
+                  <num>ρλ</num>. Περὶ ταπεινοφροσύνης.</p>
+               <p>
+                  <num>ρλα</num>. Προσευχὴ τοῦ Δαυὶδ καὶ ἐπιφάνεια Χριστοῦ.
+          </p>
+               <p>
+                  <num>ρλβ</num>. Λαοῦ τελείου.</p>
+               <p>
+                  <num>ρλγ</num>. Λαοῦ ἐρχομένου.
+          </p>
+               <p>
+                  <num>ρλδ</num>. Διδασκαλία εἰσακτική.</p>
+               <p>
+                  <num>ρλε</num>. Εὐχαριστία λελυτρωμένων.
+          </p>
+               <p>
+                  <num>ρλϛ</num>. Ἁγίων φωναὶ τῶν ἐν αἰχμαλωσίᾳ.
+          </p>
+               <p>
+                  <num>ρλζ</num>. Εὐχαριστία μετὰ προφητείας.
+          </p>
+               <p>
+                  <num>ρλη</num>. Ἔντευξις δικαίου σὺν θεολογίᾳ.</p>
+               <p>
+                  <num>ρλθ</num>. Φωναὶ τοῦ κατὰ θεὸν ἀγωνιζομένου.</p>
+               <p>
+                  <num>ρμ</num>. Προσευχὴ τοῦ κατὰ θεὸν τελείου.
+          </p>
+               <p>
+                  <num>ρμα</num>. Φωνὴ τοῦ κατὰ θεὸν πολεμουμένου.
+          </p>
+               <p>
+                  <num>ρμβ</num>. Προσευχὴ ἐξομολογουμένου.
+          </p>
+               <p>
+                  <num>ρμγ</num>. Εὐχαριστία νενικηκότος.</p>
+               <p>
+                  <num>ρμδ</num>. Ὕμνος σὺν θεολογίᾳ.</p>
+               <p>
+                  <num>ρμε</num>. Ὕμνος σὺν θεολογίᾳ.</p>
+               <p>
+                  <num>ρμϛ</num>. Ὕμνος σὺν θεολογίᾳ.</p>
+               <p>
+                  <num>ρμζ</num>. Ὕμνος σὺν θεολογίᾳ.</p>
+               <p>
+                  <num>ρμη</num>. Ὕμνος σὺν θεολογίᾳ.</p>
+               <p>
+                  <num>ρμθ</num>. Ὕμνος σὺν θεολογίᾳ.
+          </p>
+               <p>
+                  <num>ρν</num>. Παρακέλευσις ὕμνου καθολική.
+          </p>
+            </div>
+            <div type="textpart" subtype="book" n="DeDivisione">
+               <head>
+                  <title>
+                     <quote>De divisione psalterii et psalmorum</quote>
+                  </title>
+               </head>
+               <p>
+            Τῆς βίβλου τῶν ψαλμῶν ἥδε ἂν εἴη ἡ διαίρεσις, ὡς τὰ ἀκριβῆ τῶν ἀντιγράφων αὐτό τε τὸ Ἑβραϊκὸν περιέχει· οὐχ ὡς ἄν τις ὑπολάβοι, οἱ πάντες εἰσὶ τοῦ Δαυὶδ ψαλμοί, ἀλλὰ καὶ ἑτέρων προφητῶν ἐν τῷ ψάλλειν προφητευόντων. διόπερ ἡ πᾶσα γραφὴ παρ’ Ἑβραίοις οὐ τοῦ Δαυὶδ ἐπιγράφει, ἀλλ’  ἀδιορίστως
+            <quote>Βίβλος ψαλμῶν
+            </quote>
+            ὀνομάζεται.</p>
+               <p>
+            Εἰς πέντε δὲ μέρη τὴν πᾶσαν τῶν ψαλμῶν βίβλον παῖδες Ἑβραίων διαίρουσιν· πρῶτον, εἰς τοὺς ἀπὸ πρώτου μέχρις τεσσαρακοστοῦ· δεύτερον, εἰς τοὺς ἀπὸ τεσσαρακοστοῦ πρώτου μέχρις ἑβδομηκοστοῦ πρώτου· τρίτον, εἰς τοὺς ἀπὸ ἑβδομηκοστοῦ δευτέρου μέχρις ὀγδοηκοστοῦ ὀγδόου· τέταρτον, εἰς τοὺς ἀπὸ ὀγδοηκοστοῦ ἐνάτου μέχρις ἑκατοστοῦ πέμπτου· πέμπτον, εἰς τοὺς ἀπὸ ἑκατοστοῦ ἕκτου μέχρις τέλους τοῦ βιβλίου.
+          </p>
+               <p>
+            Ἀνεπίγραφοι δὲ εἰσὶ ψαλμοὶ <num>ιθ</num>, ἐπιγεγραμμένοι <num>ρλα</num>.
+          </p>
+               <p>
+            Τῶν ἐπιγεγραμμένων δέ εἰσιν οὕτως αἱ διαιρέσεις·
+          </p>
+               <p>
+            τοῦ μὲν Δαυίδ <num>οβ</num>
+               </p>
+               <p>
+            τῶν δὲ υἱῶν Κορὲ <num>ια</num>
+               </p>
+               <p>
+            τοῦ Ἀσὰφ <num>ιβ</num>
+               </p>
+               <p>Αἰθὰμ τοῦ Ἰσραηλίτου <num>α</num>
+               </p>
+               <p>Σολομῶντος <num>β</num>
+               </p>
+               <p>
+            Μωυσέως <num>α</num>
+               </p>
+               <p>ἀνώνυμοι <num>ιζ</num>
+               </p>
+               <p>
+            τῶν εἰς τὸ Ἀλληλούϊα <num>ιε</num>
+               </p>
+               <p>(Εἰσὶ δὲ ἀνώνυμοι, ὅσοι ἐπιγραφὰς μὲν ἔχουσιν, οὐ μὴν δηλοῦσι, τίνος εἰσίν.)
+          </p>
+               <p>
+            ἀνεπίγραφοι <num>ιθ</num>
+               </p>
+               <p>ὁμοῦ <num>ρν</num>.
+          </p>
+            </div>
+            <div type="textpart" subtype="part" n="DeAuctore">
+               <head>
+                  <title>De auctore psalmi I et II</title>
+               </head>
+               <p>Τοὺς δὲ μετὰ τὸν πρῶτον καὶ δεύτερον ἀνεπιγράφους ψαλμοὺς καὶ τοὺς ἐπιγραφὴν ἔχοντας οὐ δηλοῦντας, τίνος εἰσίν, ἐκείνων εἶναι παῖδες Ἑβραίων φασίν, ὧν τοὔνομα φέρεται ἐν ταῖς τῶν ἀνεπιγράφων προτεταγμέναις. τὸν δὲ <num>α</num> καὶ <num>β</num>, ἕνα ὄντας ἄμφω, τοῦ Δαυὶδ ὑπάρχειν ἡγοῦμαι διὰ τὸ πάντας τοὺς ἐν τῷ πρώτῳ μέρει τῶν Ψαλμῶν ἐφεξῆς αὐτοῦ εἶναι. ἀπὸ γοῦν τοῦ τρίτου μέχρι τοῦ <num>μ</num> τοῦ Δαυὶδ ἐπιγράφονται οἱ πάντες· διό μοι δοκοῦσιν ὑπάρχειν τοῦ αὐτοῦ ὅ τε πρῶτος καὶ ὁ δεύτερος.
+          </p>
+               <p>Πιστοῦται δὲ λόγον ἡ τῶν Πράξεων τῶν ἀποστόλων βίβλος, ἐν ᾗ εἴρηται·
+            <quote>δέσποτα, σὺ ἐποίησας τὸν οὐρανὸν καὶ τὴν γῆν καὶ τὴν θάλασσαν καὶ πάντα τὰ ἐν αὐτοῖς· ὁ τοῦ πατρὸς ἡμῶν διὰ πνεύματος ἁγίου στόματος παιδός σου Δαυὶδ εἰπών· ἵνα τί ἐφρύαξαν ἔθνη καὶ λαοί;</quote> σαφῶς γὰρ διὰ τούτων τὸν <num>β</num> ψαλμὸν τοῦ Δαυὶδ ἔφησεν εἶναι. ἀποσεσιωπῆσθαι δὲ εἰκὸς ἐπ’ αὐτὸν τὴν τοῦ Δαυὶδ προγραφὴν διὰ τὸ γυμνὴν ἔχειν περὶ τοῦ κυρίου προφητείαν, ἐν ᾗ εἴρηται· <quote>κατὰ τοῦ κυρίου καὶ κατὰ τοῦ χριστοῦ αὐτοῦ·</quote> οἷς ἀκολούθως ἐπιλέγει ἐξ αὐτοῦ τοῦ προσώπου τοῦ Χριστοῦ τό· <quote>κύριος εἶπεν πρὸς μέ· υἱός μου εἶ σύ.</quote>
+               </p>
+            </div>
+            <div type="textpart" subtype="part" n="DeOrdine">
+               <head>
+                  <title>
+                     <quote>De ordine psalmorum</quote>
+                  </title>
+               </head>
+               <p>
+            Ἐν τῇ ἑβραϊκῇ βίβλῳ τῶν Ψαλμῶν ἄνευ τῆς τοῦ ἀριθμοῦ προσθήκης ἀνεγράφησαν οἱ πάντες καὶ διαφόρως· οἱ μέν εἰσι συνημμένοι, οἱ δὲ διῃρημένοι. αὐτίκα γοῦν ὁ πρῶτος καὶ δεύτερος συνημμένοι εἰσὶ κατὰ τὸ ἑβραϊκόν· καὶ πάλιν ὁ ἔνατος, συνημμένος παρ’  ἡμῖν, ἐν τῷ ἑβραϊκῷ διῄρηται εἰς δύο.
+          </p>
+               <p>
+            Καὶ πᾶσα δὲ ἡ τῶν Ψαλμῶν βίβλος εἰς μέρη πέντε διῄρηται.
+          </p>
+               <p>
+            Παρατηρητέον δέ, ὅτι μὴ κατὰ ἀκολουθίαν τῶν τῆς ἱστορίας χρόνων ἡ τῶν ψαλμῶν σύγκειται τάξις· ἐνήλλακται δὲ παρὰ πολὺ τοῖς χρόνοις, καθὼς ἡ βίβλος τῶν Βασιλειῶν δηλοῖ.
+          </p>
+               <p>
+            Πολλῆς γὰρ εἰδωλολατρείας κατακρατησάσης τοῦ Ἰουδαίων ἔθνους λήθην αὐτοὺς πεποιῆσθαι τῶν πατρίων γραφῶν, ὡς μηδὲ φαίνεσθαι βίβλον τοῦ Μωσέως νόμου, μηδὲ μνήμην τῆς τῶν πατέρων εὐσεβείας σώζεσθαι παρ’  αὐτοῖς. οὕτω γοῦν καὶ τοὺς προφήτας ἀνῄρουν διελέγχοντας αὐτῶν τὰς δυσσεβείας· καὶ τούτων ἕνεκα τὸ πρῶτον τῇ τῶν Ἀσσυρίων παρεδόθησαν αἰχμαλωσίᾳ.
+          </p>
+               <p>
+            Οὐδὲν οὖν θαυμαστὸν ἐν τοιαύτῃ καταστάσει καιρῶν καὶ τὰ ἐμφερομένα τῇ βίβλῳ τῶν Ψαλμῶν διαπεπτωκέναι λήθῃ τε μακροῖς παραδεδόσθαι χρόνοις· ὕστερον δὲ μετὰ ταῦτα εἴτε Ἔσδραν εἴτε τινὰ ἕτερον προφητῶν περὶ τὴν συναγωγὴν αὐτῶν ἐσπουδακέναι, μετά τε τῶν λοιπῶν καὶ τὴν βίβλον τῶν Ψαλμῶν συναγηοχέναι, οὐκ ἀθρόως εὑρόντα τοὺς πάντας, ἀλλὰ κατὰ διαφόρους χρόνους, κατατάττειν δὲ ἐν πρώτοις τοὺς πρώτους εὑρισκομένους· διὸ μηδὲ τοῦ Δαυὶδ ἐφεξῆς κεῖσθαι τοὺς πάντας, ἐν δὲ τῷ μεταξὺ καὶ τῶν υἱῶν Κορὲ καὶ τοῦ Ἀσὰφ καὶ Σολομῶνος καὶ Μωσέως Αἰθάμ τε καὶ Αἰμὰν καὶ πάλιν τοῦ Δαυὶδ εὑρίσκεσθαι ἀναμὶξ ἐν τῇ βίβλῳ κατατεταγμένους, οὐ καθ’  οὓς ἐλέχθησαν χρόνους, ἀλλὰ καθ’  οὓς εὕρηνται· ἔνθεν τε συμβῆναι τοὺς τοῖς χρόνοις ὑστέρους πρώτους εὑρεθέντας ἀναληφθῆναι προτέρους, καὶ τοὺς τοῖς χρόνοις προτέρους μετὰ ταῦτα εὑρημένους ἐν δευτέρᾳ καταταγῆναι χώρᾳ.
+          </p>
+               <p>
+            Τὸ δ’  αὐτὸ εὕροις γεγενημένον καὶ ἐν τοῖς προφήταις.
+          </p>
+               <p>
+                  <num>νη</num>.
+            <quote>ὅτε ἀπέστειλεν Σαοὺλ τοῦ θανατῶσαι αὐτόν.
+            </quote>
+               </p>
+               <p>
+                  <num>λγ</num>. ὅτε Δαυὶδ ἔρχεται εἰς Νομβᾶ πρὸς Ἀβιμέλεκ.
+          </p>
+               <p>
+                  <num>νϛ</num>.
+            <quote>εἰς τὸ σπήλαιον
+            </quote>
+            τοῦ
+            <quote>Ὀδολλάμ</quote>.
+          </p>
+               <p>
+                  <num>να</num>. τὸν Δαυὶδ διαβάλλει Δωήκ.
+          </p>
+               <p>
+                  <num>ξβ</num>. εἰς τὴν
+            <quote>ἔρημον τῆς Ἰουδαίας</quote>
+            φεύγει Δαυίδ.
+          </p>
+               <p>
+                  <num>νγ</num>. οἱ Ζιφαῖοι διαβάλλουσιν τὸν Δαυὶδ ἐν τῷ σπηλαίῳ.
+          </p>
+               <p>
+                  <num>νε</num>.
+            <quote>οἱ ἀλλόφυλοι ἐν Γέθ</quote>.
+          </p>
+               <p>
+                  <num>νθ</num>. μετὰ τὸν θάνατον Σαούλ.
+          </p>
+               <p>
+                  <num>ν</num>. ὅτε
+            <quote>ἦλθεν πρὸς αὐτὸν Νάθαν ὁ προφήτης</quote>.
+          </p>
+               <p>
+                  <num>γ</num>. ὅτε
+            <quote>ἀπεδίδρασκεν ἀπὸ προσώπου Ἀβεσσαλὼμ τοῦ υἱοῦ αὐτοῦ</quote>.
+          </p>
+               <p>
+                  <num>ζ</num>.
+            <quote>ὑπὲρ τῶν λόγων Χουσὶ υἱοῦ Ἰεμενεῖ</quote>.
+          </p>
+               <p>
+            Ἡ ἱστορία τῶν ψαλμῶν ταύτην ἔχει τὴν ἀκολουθίαν, ἐνήλλακται δὲ τῷ τῆς εὑρέσεως χρόνῳ.
+          </p>
+            </div>
+            <div type="textpart" subtype="part" n="DeDiapsalmate">
+               <head>
+                  <title>De diapsalmate</title>
+               </head>
+               <p>
+            Ἔγραψαν τὸ διάψαλμα οἱ ἑρμηνεύσαντες τέσσαρες ἄρχοντες, οἳ ἐξελέγοντο ὑπὸ Δαυὶδ τοῦ βασιλέως ἐκ τῆς φυλῆς Λευί· Ἀσάφ, υἱὸς Κορὲ Αἰμάν, Αἰθάμ, Ἰδιθούμ· τούτοις ἀριθμὸς ᾠδῶν παρακολουθεῖ <num>σπη</num> ἕκαστος ἔχων <num>οβ</num>. οὗτοι ἵσταντο ἐνώπιον τοῦ θυσιαστηρίου
+            τοῦ ἁγιάσματος κυρίου αἰνοῦντες τὸν πάντων δεσπότην, ὃς μὲν κύμβαλοις, ὃς δὲ ψαλτηρίῳ, ὃς δὲ κιννύρᾳ, ὃς δὲ κερατίνῃ, ὃς δὲ κιθάρᾳ· ὧν μέσος ἵστατο Δαυὶδ αὐτὸς ἄρχων ἀρχόντων τῶν ᾠδῶν κρατῶν ἐπὶ χεῖρας τὸ ψαλτήριον. ἕκαστος δὲ πνεύματι ἁγίῳ
+            κινούμενος ὕμνει τὸν θεόν, καὶ πάντες ἐπεφώνουν σὺν τῷ ψάλλοντι· ἀλληλούϊα. ὁπηνίκα δ’  ἄν πρὸς βραχὺ ἡ τοῦ ἁγίου πνεύματος ἀπέστη χάρις τῶν ὀργάνων λοιπὸν μὴ κινουμένων, τὸ τηνικαῦτα εἰκὸς καὶ τὸ διάψαλμα ἔγραφον, ἐν οἵῳ δ’ ἂν ψαλμῷ καὶ στίχῳ
+            ἐντύγχανον.
+          </p>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>
