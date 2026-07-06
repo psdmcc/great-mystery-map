@@ -108,19 +108,13 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        map.createPane('pane_World Basemap Canvas_0');
-        map.getPane('pane_World Basemap Canvas_0').style.zIndex = 400;
-        var layer_World_Basemap_Canvas_0 = L.tileLayer('https://stadiamaps.com{z}/{x}/{y}{r}.png', {
-            pane: 'pane_World Basemap Canvas_0',
+        // Clean Web Tile Layer Implementation
+        var standard_basemap = L.tileLayer('https://cartocdn.com{z}/{x}/{y}.png', {
             opacity: 1.0,
-            attribution: '',
+            attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
             minZoom: 1,
-            maxZoom: 28,
-            minNativeZoom: 0,
-            maxNativeZoom: 19
-        });
-        layer_World_Basemap_Canvas_0;
-        map.addLayer(layer_World_Basemap_Canvas_0);
+            maxZoom: 28
+        }).addTo(map);
         function pop_mysterium_geospatial_vectors_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
