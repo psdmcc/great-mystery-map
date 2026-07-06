@@ -155,13 +155,7 @@
         }
 
         function style_mysterium_geospatial_vectors_0_0(feature) {
-            switch(String(feature.properties['CASE 
-  WHEN "Work_Title" LIKE \'%Hippocrates%\' OR "Work_Title" LIKE \'%Hippocratis%\' OR "Work_Title" LIKE \'%Plato%\' OR "Work_Title" LIKE \'%Euripides%\' THEN \'Tier 1: Classical Antiquity (5th-4th C. BCE)\'
-  WHEN "Work_Title" LIKE \'%Galen%\' OR "Work_Title" LIKE \'%Galenus%\' OR "Work_Title" LIKE \'%Artemidorus%\' OR "Work_Title" LIKE \'%Cebes%\' OR "Work_Title" LIKE \'%Vettius%\' THEN \'Tier 2: Roman Imperial Peak (1st-2nd C. CE)\'
-  WHEN "Work_Title" LIKE \'%Philostorgius%\' OR "Work_Title" LIKE \'%Sozomen%\' OR "Work_Title" LIKE \'%Theodoret%\' OR "Work_Title" LIKE \'%Paschale%\' OR "Work_Title" LIKE \'%Catenae%\' OR "Work_Title" LIKE \'%Agathias%\' OR "Work_Title" LIKE \'%Socrates%\' THEN \'Tier 4: Byzantine Transition (6th C. CE+)\'
-  ELSE \'Tier 3: Late Antiquity (3rd-5th C. CE)\'
-END
-'])) {
+            switch(String(feature.properties['CASE WHEN "Work_Title" LIKE \'%Hippocrates%\' OR "Work_Title" LIKE \'%Hippocratis%\' OR "Work_Title" LIKE \'%Plato%\' OR "Work_Title" LIKE \'%Euripides%\' THEN \'Tier 1: Classical Antiquity (5th-4th C. BCE)\' WHEN "Work_Title" LIKE \'%Galen%\' OR "Work_Title" LIKE \'%Galenus%\' OR "Work_Title" LIKE \'%Artemidorus%\' OR "Work_Title" LIKE \'%Cebes%\' OR "Work_Title" LIKE \'%Vettius%\' THEN \'Tier 2: Roman Imperial Peak (1st-2nd C. CE)\' WHEN "Work_Title" LIKE \'%Philostorgius%\' OR "Work_Title" LIKE \'%Sozomen%\' OR "Work_Title" LIKE \'%Theodoret%\' OR "Work_Title" LIKE \'%Paschale%\' OR "Work_Title" LIKE \'%Catenae%\' OR "Work_Title" LIKE \'%Agathias%\' OR "Work_Title" LIKE \'%Socrates%\' THEN \'Tier 4: Byzantine Transition (6th C. CE+)\' ELSE \'Tier 3: Late Antiquity (3rd-5th C. CE)\' END '])) {
                 default:
                     return {
                 pane: 'pane_mysterium_geospatial_vectors_0',
