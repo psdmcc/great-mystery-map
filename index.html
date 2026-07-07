@@ -41,7 +41,11 @@
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
-        // remove popup's row if "visible-with-data"
+        // --------------------------------------------------------------------
+// qgis2web feature group
+// --------------------------------------------------------------------
+var bounds_group = new L.featureGroup();
+			// remove popup's row if "visible-with-data"
         function removeEmptyRowsFromPopupContent(content, feature) {
          var tempDiv = document.createElement('div');
          tempDiv.innerHTML = content;
@@ -105,14 +109,19 @@
         var zoomControl = L.control.zoom({
             position: 'topleft'
         }).addTo(map);
-        var layer_World_Basemap_Canvas_0 = L.tileLayer('https://cartocdn.com{z}/{x}/{y}.png', {
-            
-            opacity: 1.0,
-            attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-            minZoom: 1,
-            maxZoom: 28
-        });
-        map.addLayer(layer_World_Basemap_Canvas_0);
+// --------------------------------------------------------------------
+// Base map
+// --------------------------------------------------------------------
+var layer_World_Basemap_Canvas_0 = L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
+        attribution: '&copy; OpenStreetMap contributors',
+        minZoom: 1,
+        maxZoom: 19
+    }
+);
+
+map.addLayer(layer_World_Basemap_Canvas_0);
         function pop_mysterium_geospatial_vectors_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -329,7 +338,7 @@
                 }, 500);
             }  
         });       
-        setBounds();
+    
         resetLabels([layer_mysterium_geospatial_vectors_1]);
         map.on("zoomend", function(){
             resetLabels([layer_mysterium_geospatial_vectors_1]);
